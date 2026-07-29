@@ -1,6 +1,6 @@
 // ==================== Poultry Farm Dashboard - Frontend Logic ====================
 const API_BASE = window.location.origin.replace(':3000',':5000') + '/api';
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'https://poultry-monitor-backend.onrender.com/api';
 
 let tempChart, humChart, historyChart;
 const tempHistory = []; const humHistory = []; const timeline = [];
