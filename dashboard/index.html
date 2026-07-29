@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poultry Farm IoT Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<header>
+  <h1>🐔 Poultry Farm Monitor</h1>
+  <div id="status-bar">
+    <span id="connection-status" class="badge offline">● Offline</span>
+    <span id="flock-day-badge" class="badge info">Flock Day: --</span>
+    <span id="last-update" class="badge">Last update: --</span>
+  </div>
+</header>
+
+<main class="dashboard-grid">
+  <!-- Live Sensor Cards -->
+  <section class="card">
+    <h2>🌡️ Temperature</h2>
+    <div class="card-value" id="temp-value">--°C</div>
+    <div class="card-sub" id="temp-target">Target: --°C</div>
+    <canvas id="temp-chart" height="120"></canvas>
+  </section>
+
+  <section class="card">
+    <h2>💧 Humidity</h2>
+    <div class="card-value" id="hum-value">--%</div>
+    <canvas id="hum-chart" height="120"></canvas>
+  </section>
+
+  <section class="card">
+    <h2>☠️ Ammonia (NH₃)</h2>
+    <div class="card-value" id="nh3-value">-- ppm</div>
+    <div class="progress-bar"><div id="nh3-bar" class="fill safe" style="width:0%"></div></div>
+  </section>
+
+  <!-- Comfort Score -->
+  <section class="card highlight">
+    <h2>🛋️ Comfort Score</h2>
+    <div class="card-value large" id="comfort-value">--</div>
+    <small>out of 100</small>
+  </section>
+
+  <!-- System Status -->
+  <section class="card">
+    <h2>⚙️ Controls</h2>
+    <div class="control-row">
+      <span>Exhaust Fan</span>
+      <span id="fan-speed" class="badge">--%</span>
+    </div>
+    <div class="control-row">
+      <span>Heater</span>
+      <span id="heater-state" class="badge">--</span>
+    </div>
+  </section>
+
+  <!-- Distress Detection -->
+  <section class="card alert-card" id="distress-card">
+    <h2>🎤 Chick Distress</h2>
+    <div id="distress-value" class="card-value">Normal</div>
+    <small id="distress-confidence"></small>
+  </section>
+
+  <!-- Alerts Panel -->
+  <section class="card span-2" id="alerts-panel">
+    <h2>🚨 Anomaly Alerts</h2>
+    <ul id="alerts-list"><li>No active alerts</li></ul>
+  </section>
+
+  <!-- Energy Savings -->
+  <section class="card span-2 highlight-green">
+    <h2>💰 Energy Savings</h2>
+    <div class="savings-grid">
+      <div><strong id="savings-kwh">--</strong><br><small>kWh Saved</small></div>
+      <div><strong id="savings-cost">--</strong><br><small>Cost Saved ($)</small></div>
+      <div><strong id="savings-pct">--</strong><br><small>Efficiency Gain</small></div>
+      <div><strong id="savings-co2">--</strong><br><small>CO₂ Avoided (kg)</small></div>
+    </div>
+  </section>
+
+  <!-- Temperature History Chart -->
+  <section class="card span-4">
+    <h2>📈 24-Hour History</h2>
+    <canvas id="history-chart" height="200"></canvas>
+  </section>
+</main>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

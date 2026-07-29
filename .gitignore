@@ -1,0 +1,20 @@
+# Python
+*.pyc
+__pycache__/
+venv/
+.env
+
+# Arduino
+*.build/
+
+firebase-key.json
+backend/firebase-key.json
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
